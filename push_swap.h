@@ -6,7 +6,7 @@
 /*   By: gwagner <gwagner@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 16:50:44 by gwagner           #+#    #+#             */
-/*   Updated: 2024/08/01 19:15:14 by gwagner          ###   ########.fr       */
+/*   Updated: 2024/08/02 15:17:31 by gwagner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
-void	ft_err(char *msg);
+void	ft_err_check(char *msg, char **to_free, int argc);
 void	ft_check_args(int argc, char **argv);
 int		sa(t_list **stack_a);
 int		sb(t_list **stack_b);
@@ -45,14 +45,10 @@ t_list	*ft_lstlast(t_list *head);
 void	ft_lstadd_back(t_list **stack, t_list *new);
 int		ft_lstsize(t_list *head);
 void	ft_printlst(t_list *head);
-void	index_lst(t_list *head);
 void	free_stack(t_list	**stack);
 int		is_sorted(t_list **stack);
 void	simple_sort(t_list **stack_a, t_list **stack_b);
-void	stackington(int ac, t_list **stack_b);
 int		find_min(t_list *stack_a);
-int		index_min(t_list **stack);
-void	*distance(t_list **stack);
 void	sort_3(t_list **stack_a);
 void	radixsort(t_list **stack_a, t_list **stack_b);
 void	ft_free(char **str);

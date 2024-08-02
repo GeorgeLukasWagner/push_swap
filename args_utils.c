@@ -6,7 +6,7 @@
 /*   By: gwagner <gwagner@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 20:46:03 by gwagner           #+#    #+#             */
-/*   Updated: 2024/08/01 17:57:25 by gwagner          ###   ########.fr       */
+/*   Updated: 2024/08/02 15:18:29 by gwagner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,12 @@ static int	ft_isnum(char *num)
 	return (1);
 }
 
-void	ft_err(char *msg)
+void	ft_err_check(char *msg, char **to_free, int argc)
 {
 	ft_putstr_fd(msg, 2);
-	exit(1);
+	if (argc == 2)
+		ft_free(to_free);
+	exit(EXIT_FAILURE);
 }
 
 void	ft_check_args(int argc, char **argv)
@@ -64,41 +66,13 @@ void	ft_check_args(int argc, char **argv)
 	{
 		tmp = ft_atoi(args[i]);
 		if (!ft_isnum(args[i]))
-			ft_err("Error");
+			ft_err_check("Error", args, argc);
 		if (ft_contains(tmp, args, i))
-			ft_err("Error");
+			ft_err_check("Error", args, argc);
 		if (tmp < -2147483648 || tmp > 2147483647)
-			ft_err("Error");
+			ft_err_check("Error", args, argc);
 		i++;
 	}
 	if (argc == 2)
 		ft_free(args);
 }
-
-// void	get_data(int ac, char **av, t_list **stack_a)
-// {
-// 	size_t	i;
-// 	int		value;
-// 	t_list	*tmp;
-// 	char	**args;
-
-// 	i = 0;
-// 	if (ac == 2)
-// 		args = ft_split(av[1], ' ');
-// 	else
-// 	{
-// 		i = 1;
-// 		args = av;
-// 	}
-// 	ft_check_args(ac, args, i);
-// 	while (i < argslen(args))
-// 	{
-// 		value = ft_atoi(args[i]);
-// 		tmp = ft_lstnew(value, i);
-// 		if (!tmp)
-// 			ft_err("Error");
-// 		ft_lstadd_back(stack_a, tmp);
-// 		ft_printf("%s\n", args[i]);
-// 		i++;
-// 	}
-// }

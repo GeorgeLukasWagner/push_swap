@@ -6,7 +6,7 @@
 /*   By: gwagner <gwagner@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 11:46:41 by gwagner           #+#    #+#             */
-/*   Updated: 2024/08/01 17:50:12 by gwagner          ###   ########.fr       */
+/*   Updated: 2024/08/02 14:15:31 by gwagner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	words = count_words(s, c);
-	array = (char **)malloc(sizeof(char *) * words + 1);
+	array = (char **)malloc(sizeof(char *) * (words + 1));
 	if (!array)
 		return (NULL);
 	array = split(s, c, array, words);

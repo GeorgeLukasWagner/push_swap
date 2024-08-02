@@ -6,7 +6,7 @@
 /*   By: gwagner <gwagner@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 16:56:16 by gwagner           #+#    #+#             */
-/*   Updated: 2024/08/01 20:23:47 by gwagner          ###   ########.fr       */
+/*   Updated: 2024/08/02 15:12:39 by gwagner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	ft_free(char **str)
 		i++;
 	while (i >= 0)
 		free(str[i--]);
+	free(str);
 }
 
 void	get_data(t_list **stack, int argc, char **argv)

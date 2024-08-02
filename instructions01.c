@@ -6,7 +6,7 @@
 /*   By: gwagner <gwagner@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 20:55:59 by gwagner           #+#    #+#             */
-/*   Updated: 2024/07/26 12:39:10 by gwagner          ###   ########.fr       */
+/*   Updated: 2024/08/02 15:10:14 by gwagner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int	swap(t_list **stack)
 	head = *stack;
 	next = head->next;
 	if (!head && !next)
-		ft_err("Error");
+		return (-1);
 	tmp_data = head->data;
 	tmp_distance = head->distance;
 	head->data = next->data;
@@ -54,8 +54,8 @@ int	ss(t_list **stack_a, t_list **stack_b)
 {
 	if ((ft_lstsize(*stack_a) < 2) || (ft_lstsize(*stack_b) < 2))
 		return (-1);
-	swap(stack_a);
-	swap(stack_b);
+	if (swap(stack_a) == -1 || swap(stack_b) == -1)
+		return (-1);
 	ft_printf("ss\n");
 	return (0);
 }
